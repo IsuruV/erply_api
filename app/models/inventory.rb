@@ -1,11 +1,25 @@
 class Inventory
     attr_accessor :api, :items, :ids_quantities
-    def initialize
+    def initialize(user_name, password)
         self.api = Erply.new
         self.api.clientCode = "295038"
-        self.api.username = "drizly"
-        self.api.password = "drizly123"
+        self.api.username = user_name
+        self.api.password = password
         self.api.url = "https://"+self.api.clientCode+".erply.com/api/"
+    end
+
+    def formatted_items
+      arr = []
+      self.items.each do |item|
+        arr << {'productID': item['productID'], 'name': item['name'], 'price': item['price'],
+                'in_stock': item['in_stock'], 'code': item['code'], 'groupID': item['groupID'],
+              'active': item['active'], 'displayedInWebshop': item['displayedInWebshop'], 'description': item['description'],
+              'longdesc': item['longdesc'], 'added': item['added'], 'addedByUsername': item['addedByUsername'], 'lastModified': item['lastModified'],
+            'lastModifiedByUsername': item['lastModifiedByUsername'], 'seriesName': item['seriesName'], 'groupName': item['groupName'],
+            'categoryID': item['categoryID'], 'categoryName': item['categoryName'], 'status': item['status'], 'nonStockProduct': item['nonStockProduct'],
+            'images': item['images'], 'type': item['type']}
+      end
+      arr
     end
 
     def get_product_ids_quantities
