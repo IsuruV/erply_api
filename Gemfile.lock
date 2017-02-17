@@ -96,6 +96,11 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.1)
       actionpack (= 5.0.1)
       activesupport (= 5.0.1)
@@ -130,6 +135,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xmlrpc (0.2.1)
 
 PLATFORMS
   ruby
@@ -144,11 +150,13 @@ DEPENDENCIES
   pry
   puma (~> 3.0)
   rails (~> 5.0.1)
+  rails_12factor
   rb-readline
   responders
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  xmlrpc
 
 RUBY VERSION
    ruby 2.4.0p0

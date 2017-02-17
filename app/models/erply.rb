@@ -1,7 +1,7 @@
 require 'json'
 require 'net/http'
 require 'uri'
-require 'OpenSSL'
+# require 'OpenSSL'
 
 class MissingArgumentsException < Exception
 end
