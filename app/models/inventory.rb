@@ -7,6 +7,11 @@ class Inventory
         self.api.password = password
         self.api.url = "https://"+self.api.clientCode+".erply.com/api/"
     end
+    
+    def set_items
+      self.get_product_ids_quantities
+      self.get_detailed_info
+    end
 
     def formatted_items
       arr = []
@@ -55,6 +60,14 @@ class Inventory
           end
         end
       end
+    end
+    
+    def get_products_with_no_images
+      self.items.map{|item| item if !item["images"] }
+    end
+    
+    def set_item_image(image, item_id)
+      self.api.sendRequest("saveProductPicture", {"productID" =>item_id, "picture" => image})
     end
 
     def self.get_updated_inventory(instance)
