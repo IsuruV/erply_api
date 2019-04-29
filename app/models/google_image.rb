@@ -18,4 +18,3 @@ class GoogleImage
 end 
 
 
-# https://www.googleapis.com/customsearch/v1?#=AIzaSyDC46QLShibs2Fu53xAi_EbbAgXeNeqEXE&#=001125335750256783612:yug7zrcrhks&searchType=image&q=lectures
