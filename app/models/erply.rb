@@ -97,6 +97,44 @@ class Erply
 		response = handle.request(request)
 		return response.body
 	end
+	
+		def sendRequest_mod(request, parameters = Hash.new)
+		if(!@url || !@clientCode || !@username || !@password)
+		raise MissingArgumentsException.new("Missing parameters")
+		end
+
+		#add extra params
+		parameters['request'] = request
+		parameters['clientCode'] = @clientCode
+		parameters['version'] = '1.0'
+		parameters['username'] = @username
+		parameters['password'] = @password
+    # parameters['responseType'] = 'CSV'
+			if(request != "verifyUser") then
+				parameters['sessionKey'] = "JhNf7961e9c2551a516a359adadb8b975c3a10c4ea60"
+			end
+		#create request
+		uri = URI.parse("https://pl10.erply.com/service/cdnconnectplugin/NEW_S3_UI_FILES/Helpers/uploadPicture.php")
+		handle = Net::HTTP.new(uri.host,uri.port)
+
+		#create errors on timeout
+		handle.read_timeout = 45
+
+		#set up host and cert verification
+		handle.use_ssl = true
+		handle.verify_mode = OpenSSL::SSL::VERIFY_NONE
+		if(@sslCACertPath) then
+			handle.ca_file = @sslCACertPath
+			handle.verify_mode = OpenSSL::SSL::VERIFY_PEER
+		end
+
+		#set the payload and run
+		response = Net::HTTP.post_form(uri, parameters)
+		#request.set_form_data(parameters)
+		#response = handle.request(request)
+		#binding.pry
+		return response.body
+	end
 
 	private
 	def getSessionKey()
