@@ -1,12 +1,10 @@
 require 'open-uri'
 require 'base64'
 class GoogleImage
-   #KEY ="AIzaSyDC46QLShibs2Fu53xAi_EbbAgXeNeqEXE"
-   KEY="AIzaSyBc1vTv57_1HawTcWQanaBuEwClnDHOe_E"
-   #CX = "001125335750256783612:yug7zrcrhks"
-   CX="001125335750256783612:f_opobhbnzq"
+   KEY=""
+   CX=""
    END_POINT="https://www.googleapis.com/customsearch/v1?key=#{KEY}&cx=#{CX}&searchType=image"
-   #END_POINT="https://www.googleapis.com/customsearch/v1?#=AIzaSyDC46QLShibs2Fu53xAi_EbbAgXeNeqEXE&#=001125335750256783612:yug7zrcrhks&searchType=image"
+
   
     #get first of 10 items
     def self.get_image_link(search_item)
