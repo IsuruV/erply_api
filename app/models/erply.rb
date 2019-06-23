@@ -111,7 +111,7 @@ class Erply
 		parameters['password'] = @password
     # parameters['responseType'] = 'CSV'
 			if(request != "verifyUser") then
-				parameters['sessionKey'] = "JhNf7961e9c2551a516a359adadb8b975c3a10c4ea60"
+				parameters['sessionKey'] = "ZaOO29ec267f477874cdb3bb93c993129ff8bd93d067"
 			end
 		#create request
 		uri = URI.parse("https://pl10.erply.com/service/cdnconnectplugin/NEW_S3_UI_FILES/Helpers/uploadPicture.php")
