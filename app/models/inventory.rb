@@ -40,15 +40,24 @@ class Inventory
     
    def add_pics
       self.set_items
-      
+    
       self.items.each do |item|
-        if item['code2']!="" && !item['images']
+        code = item['code2']
+        should_search = false
+        if item['code2'] == ""
+          code = item['code']
+          should_search = true
+        end
+        # if item['cod2'] == '856184006112' || item['code'] == '856184006112'
+        #   binding.pry
+        # end
+        if should_search && code!="" && !item['images'] && Item.where(code:code).length == 0
         #if item['code2']!="" && !!item['images'] && item['images'].length == 0
       
-          img = GoogleImage.image_bytes(item['code2'])
+          img = GoogleImage.image_bytes(code)
           if !!img
             resp = self.api.sendRequest_mod('add_pics', {'picture' => 'data:image/png;base64,'+img, 'fileName': item['name'].delete(' ') + '.jpg', 'productID' => item['productID']})
-            print resp+"\n"
+            print resp+"\n"+"item: #{item['name']}"
           end
         end
       end
