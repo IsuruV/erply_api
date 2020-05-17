@@ -97,7 +97,7 @@ class Erply
 		response = handle.request(request)
 		return response.body
 	end
-	
+
 		def sendRequest_mod(request, parameters = Hash.new)
 		if(!@url || !@clientCode || !@username || !@password)
 		raise MissingArgumentsException.new("Missing parameters")
@@ -111,7 +111,7 @@ class Erply
 		parameters['password'] = @password
     # parameters['responseType'] = 'CSV'
 			if(request != "verifyUser") then
-				parameters['sessionKey'] = "ZaOO29ec267f477874cdb3bb93c993129ff8bd93d067"
+				parameters['sessionKey'] = ""
 			end
 		#create request
 		uri = URI.parse("https://pl10.erply.com/service/cdnconnectplugin/NEW_S3_UI_FILES/Helpers/uploadPicture.php")
@@ -166,3 +166,9 @@ class Erply
 		return @session['EAPISessionKey'][@clientCode][@username]
 	end
 end
+
+
+#https://minibardelivery.com/api/v2/supplier/687,382,27,296,565,572,686,792,250,145,386,517,480,394,479,378,110,562,417,23,539,427,721,510,410,541,435,481,388,589,791,491,9,488,485,164,95/related?count=8&product_grouping_id=bulleit-bourbon&product_grouping_similarity_type=content&shipping_state=NY
+#https://minibardelivery.com/store/product/bulleit-bourbon
+#https://minibardelivery.com/store/product/agustinos-cabernet-sauvignon?q=agustinos%20cabernet%20sau&sc=product
+#https://minibardelivery.com/api/v2/supplier/9,23,27,95,110,145,164,250,296,378,382,386,388,394,410,417,427,435,479,480,481,485,488,491,510,517,539,541,562,565,572,589,686,687,721,791,792/product_grouping/agustinos-cabernet-sauvignon?shipping_state=NY

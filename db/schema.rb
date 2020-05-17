@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190526233738) do
+ActiveRecord::Schema.define(version: 20191113024311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,29 @@ ActiveRecord::Schema.define(version: 20190526233738) do
     t.string  "image_url"
     t.boolean "processed"
     t.string  "error"
+  end
+
+  create_table "mini_bars", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "image_url"
+    t.string   "description"
+    t.boolean  "processed"
+    t.string   "error"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "product_type"
+    t.string   "category"
+    t.string   "brand_name"
+    t.string   "region"
+    t.string   "country"
+    t.string   "varietal"
+    t.string   "thumb_url"
+    t.string   "thumb_img_base"
+    t.string   "img_base"
+    t.string   "erply_id"
+    t.boolean  "img_proc"
+    t.boolean  "desc_proc"
   end
 
 end
