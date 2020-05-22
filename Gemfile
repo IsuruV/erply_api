@@ -13,7 +13,7 @@ gem 'rails', '~> 5.0.1'
 gem 'pg'
 gem 'openssl'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'rb-readline'
 gem 'pry'
 gem 'as_csv'
