@@ -55,6 +55,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    ipaddr (1.2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -74,12 +75,14 @@ GEM
     nokogiri (1.10.3-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     openssl (2.1.2)
+      ipaddr
     pg (1.1.4)
     pg (1.1.4-x64-mingw32)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    puma (3.12.1)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -154,7 +157,7 @@ DEPENDENCIES
   openssl
   pg
   pry
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (~> 5.0.1)
   rails_12factor
   rb-readline
